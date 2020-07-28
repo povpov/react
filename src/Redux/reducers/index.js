@@ -1,10 +1,12 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import calc from "./calc";
 import game from "./game";
+import theme from "./theme";
 
-let reducers=combineReducers({
+let reducers = combineReducers({
     calc: calc,
-    game: game
+    game: game,
+    theme: theme
 });
 
 export default reducers

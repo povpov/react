@@ -2,35 +2,46 @@ import React from 'react';
 import Button from "../../components/Button/Button";
 import styles from './Theme.module.css';
 import Title from "../../components/Title/Title";
+import { connect } from 'react-redux';
+import { changetheme, styletheme } from '../../Redux/actionCreators/theme';
+import { bindActionCreators } from 'redux';
 
 const Theme = (props) => {
-    let onClickTheme = (e) => {
-        let id = e.target.id;
+    const { Theme, changetheme, styletheme } = props;
 
-    }
     return (
         <>
-            <Title name={"Переключатель тем на странице"}/>
+            <Title name={"Переключатель тем на странице"} />
             <div className={styles.wrapper}>
                 <Button
                     text={"Красный"}
-                    id={"red"}
-                    onClick={onClickTheme}
+                    onClick={(e) => changetheme("red")}
                 />
                 <Button
                     text={"По умолчанию"}
-                    id={"yellow"}
-                    onClick={onClickTheme}
+                    onClick={(e) => changetheme("")}
                 />
                 <Button
                     text={"Зеленый"}
-                    id={"green"}
-                    onClick={onClickTheme}
+                    onClick={(e) => changetheme("green")}
                 />
             </div>
         </>
     );
 
 }
+const mapStateToProps = state => {
+    return {
+        styletheme: state.theme.styletheme
+    };
+};
 
-export default Theme;
+const mapDispatchToProps = () => {
+    return (dispatch) => {
+        return {
+            changetheme: bindActionCreators(changetheme, dispatch),
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Theme);

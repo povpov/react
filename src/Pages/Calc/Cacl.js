@@ -47,7 +47,7 @@ const mapStateToProps = state => {
         styleSum: state.calc.styleSum
     };
 };
-//
+
 const mapDispatchToProps = () => {
     return (dispatch) => {
         return {

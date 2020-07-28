@@ -3,7 +3,7 @@ import {CHANGESUM, ONCLICKCALCBUTTON} from '../actions/calc';
 let initialstate = {
     sum: "",
     styleSum: 'black',
-}
+};
 
 function calc(state = initialstate, action) {
     switch (action.type) {
