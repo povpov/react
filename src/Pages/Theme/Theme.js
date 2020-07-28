@@ -2,6 +2,7 @@ import React from 'react';
 import Button from "../../components/Button/Button";
 import styles from './Theme.module.css';
 import Title from "../../components/Title/Title";
+import Home from "../../components/Home/Home";
 import { connect } from 'react-redux';
 import { changetheme, styletheme } from '../../Redux/actionCreators/theme';
 import { bindActionCreators } from 'redux';
@@ -26,6 +27,7 @@ const Theme = (props) => {
                     onClick={(e) => changetheme("green")}
                 />
             </div>
+            <Home />
         </>
     );
 

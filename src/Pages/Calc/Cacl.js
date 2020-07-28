@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Calc.module.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Title from "../../components/Title/Title";
-import { changeSum, onClickCalcButton} from '../../Redux/actionCreators/calc';
+import Home from "../../components/Home/Home";
+import { changeSum, onClickCalcButton } from '../../Redux/actionCreators/calc';
 import { bindActionCreators } from 'redux';
 
 const Calc = (props) => {
-    const {Calc, changeSum,onClickCalcButton,sum, styleSum} = props;
+    const { Calc, changeSum, onClickCalcButton, sum, styleSum } = props;
     const symbol = '0123456789+-*/=c';
     let buttons = symbol.split("").map(elem =>
         <button
@@ -19,11 +20,11 @@ const Calc = (props) => {
     );
     return (
         <div className={styles.container}>
-            <Title name="Калькулятор"/>
+            <Title name="Калькулятор" />
             <div className={styles.calc}>
                 <input
                     className={styles.input}
-                    style={{color: styleSum}}
+                    style={{ color: styleSum }}
                     type="text"
                     onChange={(e) => changeSum(e.target.value)}
                     value={sum}
@@ -32,12 +33,7 @@ const Calc = (props) => {
                     {buttons}
                 </div>
             </div>
-            <button
-                className={styles.projects}
-                onClick={""}
-            >
-                Вернуться к проектам
-            </button>
+            <Home />
         </div>
     );
 }

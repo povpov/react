@@ -1,4 +1,4 @@
-import {CHANGETHEME} from '../actions/theme';
+import { CHANGETHEME } from '../actions/theme';
 
 let initialstate = {
     styletheme: '',
@@ -11,7 +11,7 @@ function theme(state = initialstate, action) {
                 ...state,
                 styletheme: action.value
             };
-       
+
         default:
             return state;
     }
